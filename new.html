@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>LCReserve(仮)</title>
+		<title>ラーニングコモンズPC席予約システム</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -12,6 +12,29 @@
 			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
+	<script>
+		function check(){
+
+			var flag = 0;
+			if(document.signup.InputId.value == ""){ 
+				flag = 1;
+			}
+			else if(document.signup.InputName.value == ""){ 
+				flag = 1;
+			}
+			else if(document.signup.Inputpasswd.value == ""){ 
+				flag = 1;
+			}
+
+			if(flag){
+				window.alert('すべてのフィールドが入力されていません。'); 
+				return false; 
+			}
+			else{
+				return true;
+			}
+		}
+	</script>
 	</head>
 	<body>
 		
@@ -25,7 +48,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#">
-					LCReserve(仮)
+					ラーニングコモンズPC席予約システム
 				</a>
 			</div>
 			
@@ -42,14 +65,14 @@
 		<div class="panel-heading">
 		</div>
 		<div class="panel-body">
-			<form>
+			<form method="POST" action="userprocess.php" name = "signup" onSubmit="return check()">
 				<div class="form-group">
 					<label for="InputEmail">学生証番号</label>
-					<input type="text" class="form-control" id="InputEmail" placeholder="学生証番号を入力してください。">
+					<input type="text" class="form-control" id="InputId" placeholder="学生証番号を入力してください。">
 				</div>
 				<div class="form-group">
 					<label for="InputEmail">氏名</label>
-					<input type="text" class="form-control" id="InputEmail" placeholder="氏名を入力してください">
+					<input type="text" class="form-control" id="InputName" placeholder="氏名を入力してください">
 				</div>
 				<div class="form-group">
 					<label for="InputEmail">パスワード</label>
@@ -57,7 +80,7 @@
 					
 				</div>
 				<p class="help-block">注意：この画面で登録後、本登録を行いますのでサポートデスクで学生証をご提示ください。</p>
-				<button type="submit" class="btn btn-primary">送信</button>
+				<button type="submit" class="btn btn-primary">登録</button>
 			</form>
 		</div>
 	</div>
