@@ -1,6 +1,6 @@
 <?php
     /* SIGNUP MODULE*/
-    include("./preprpr.php");//ココアちゃんぺろぺろ
+    include("./preprpr.php");
     $create_uid = $_POST['uid'];
 
     if(!file_exists(USER_DB_PATH.$create_uid."/uname.txt")){
@@ -10,7 +10,7 @@
         $fp = fopen(USER_DB_PATH.$create_uid."/uname.txt","w");
         fwrite($fp , $uname);
         fclose($fp);
-        //パスワードをうんちにしてから保存する
+        //sha256
         $hash_pass = hash('sha256', $create_pass);
         $fp = fopen(USER_DB_PATH.$create_uid."/upass.txt","w");
         fwrite($fp , $hash_pass);
